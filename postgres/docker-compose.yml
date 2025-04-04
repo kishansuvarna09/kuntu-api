@@ -1,0 +1,22 @@
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-12345}
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - kuntuapi
+    restart: unless-stopped
+  
+networks:
+  kuntuapi:
+    driver: bridge
+
+volumes:
+    postgres:
