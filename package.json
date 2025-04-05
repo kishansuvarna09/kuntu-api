@@ -3,7 +3,10 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "lint": "biome lint --write ./src/",
+    "format": "biome format ./src/",
+    "check": "biome check --write ./src/"
   },
   "prisma": {
     "seed": "node scripts/seed.js"
@@ -14,6 +17,7 @@
     "elysia": "^1.2.25"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "bun-types": "latest",
     "prisma": "^6.5.0"
   },
